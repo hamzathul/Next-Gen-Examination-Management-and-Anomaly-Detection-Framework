@@ -17,6 +17,7 @@ class Authority(models.Model):
     pincode = models.CharField(max_length=30)
 
 class Staff(models.Model):
+    LOGIN = models.ForeignKey(Login, on_delete=models.CASCADE,default='')
     name = models.CharField(max_length=30)
     department = models.CharField(max_length=30)
     photo = models.CharField(max_length=480)
@@ -24,6 +25,9 @@ class Staff(models.Model):
     email = models.CharField(max_length=30)
     phone = models.CharField(max_length=30)
     place = models.CharField(max_length=30)
+    post = models.CharField(max_length=30,default="")
+    district = models.CharField(max_length=30)
+    pincode = models.CharField(max_length=30)
 
 class Student(models.Model):
     name = models.CharField(max_length=30)

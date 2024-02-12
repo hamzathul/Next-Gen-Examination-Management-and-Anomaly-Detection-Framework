@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from myapp.models import Login
+from myapp.models import Login, Authority, Staff, Student
 
 
 def login(request):
@@ -15,7 +15,11 @@ def login_post(request):
         ress = Login.objects.get(username = username, password=password)
         if ress.type == 'Admin':
             return redirect('/myapp/adminhome/')
-    return HttpResponse('''<script>alert('Login Successful');window.location='/myapp/adminhome/'</script>''')
+        else:
+            return HttpResponse('''<script>alert('User not found');window.location='/myapp/login/'</script>''')
+    else:
+        return HttpResponse('''<script>alert('User not found');window.location='/myapp/login/'</script>''')
+
 
 
 def adminhome(request):
@@ -27,16 +31,37 @@ def admin_addauthority(request):
 def admin_addauthority_post(request):
     name=request.POST['textfield']
     place=request.POST['textfield2']
-    Email=request.POST['textfield3']
+    email=request.POST['textfield3']
     phone=request.POST['textfield4']
     post=request.POST['textfield5']
     district=request.POST['textfield6']
     pincode=request.POST['textfield7']
+
+    l=Login()
+    l.username=email
+    import random
+    ps=random.randint(0000,9999)
+    l.password = str(ps)
+    l.type = 'Authority'
+    l.save()
+
+    a=Authority()
+    a.LOGIN=l
+    a.name = name
+    a.place = place
+    a.email = email
+    a.phone = phone
+    a.post = post
+    a.district = district
+    a.pincode = pincode
+    a.save()
+
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addauthority/'</script>''')
 
 
 def admin_viewauthority(request):
-    return render(request, 'Admin/View Authority.html')
+    res = Authority.objects.all()
+    return render(request, 'Admin/View Authority.html',{'data':res})
 
 def admin_viewauthority_post(request):
     search=request.POST['textfield']
@@ -62,13 +87,41 @@ def admin_addstaff(request):
 
 def admin_addstaff_post(request):
     name = request.POST['textfield']
+    department = request.POST['textfield8']
+    photo = request.POST['textfield9']
+    gender = request.POST['textfield10']
     place = request.POST['textfield2']
     email = request.POST['textfield3']
     phone = request.POST['textfield4']
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+
+    l = Login()
+    l.username = email
+    import random
+    ps = random.randint(0000, 9999)
+    l.password = str(ps)
+    l.type = 'Staff'
+    l.save()
+
+    s = Staff()
+    s.LOGIN = l
+    s.name = name
+    s.department = department
+    s.photo = photo
+    s.gender = gender
+    s.place = place
+    s.email = email
+    s.phone = phone
+    s.post = post
+    s.district = district
+    s.pincode = pincode
+    s.save()
+
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addstaff/'</script>''')
+
+
 
 
 def admin_viewstaff(request):
@@ -103,7 +156,20 @@ def admin_addstudent_post(request):
     email = request.POST['textfield6']
     gender = request.POST['textfield7']
     place = request.POST['textfield8']
-    #photo = request.POST['fileField']############################
+    photo = request.FILES['fileField']
+
+    s = Student()
+    s.name = name
+    s.admissionno = admissionno
+    s.dob = dob
+    s.department = department
+    s.course = course
+    s.photo = photo
+    s.gender = gender
+    s.place = place
+    s.email = email
+    s.save()
+
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addstudent/'</script>''')
 
 

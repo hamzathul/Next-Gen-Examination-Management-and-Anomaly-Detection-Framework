@@ -5,7 +5,8 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post" enctype="multipart/form-data"><table width="200" border="1">
+<body><form action="/myapp/admin_addstudent_post/" method="post" enctype="multipart/form-data"><table width="200" border="1">
+    {% csrf_token %}
   <tr>
     <td>Name</td>
     <td><input type="text" name="textfield" id="textfield" /></td>
@@ -20,7 +21,13 @@
   </tr>
   <tr>
     <td>Department</td>
-    <td><input type="text" name="textfield4" id="textfield4" /></td>
+    <td><select name="textfield4">
+        <option value="CSE">CSE</option>
+        <option value="EEE">EEE</option>
+        <option value="CHE">CHE</option>
+        <option value="MCT">MCT</option>
+    </select>
+    </td>
   </tr>
   <tr>
     <td>Course</td>
@@ -32,8 +39,13 @@
   </tr>
   <tr>
     <td>Gender</td>
-    <td><input type="text" name="textfield7" id="textfield7" /></td>
-  </tr>
+    <td>
+        <input type="radio" name="textfield7" id="textfield7" value="Male" />Male<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Female" />Female<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Others" />Others<br>
+
+
+    </td>
   <tr>
     <td>Place</td>
     <td><input type="text" name="textfield8" id="textfield8" /></td>
