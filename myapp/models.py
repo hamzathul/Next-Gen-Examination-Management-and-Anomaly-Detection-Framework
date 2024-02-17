@@ -54,7 +54,7 @@ class Schedule(models.Model):
 
 class Hall(models.Model):
     roomno = models.CharField(max_length=30)
-    department = models.CharField(max_length=30)
+    floor = models.CharField(max_length=30)
 
 class Hallallocation(models.Model):
     EXAM = models.ForeignKey(Exam, on_delete=models.CASCADE)

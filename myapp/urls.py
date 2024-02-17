@@ -14,7 +14,7 @@ urlpatterns = [
     path('admin_viewauthority/', views.admin_viewauthority),
     path('admin_viewauthority_post/', views.admin_viewauthority_post),
 
-    path('admin_editauthority/', views.admin_editauthority),
+    path('admin_editauthority/<id>', views.admin_editauthority),
     path('admin_editauthority_post/', views.admin_editauthority_post),
 
     path('admin_addstaff/', views.admin_addstaff),

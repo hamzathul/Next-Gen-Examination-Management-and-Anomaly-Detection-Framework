@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from myapp.models import Login, Authority, Staff, Student
+from myapp.models import Login, Authority, Staff, Student, Exam, Schedule, Staffallocation, Studentallocation, Hall, \
+    Hallallocation
 
 
 def login(request):
@@ -68,8 +69,9 @@ def admin_viewauthority_post(request):
     return render(request, 'Admin/View Authority.html')
 
 
-def admin_editauthority(request):
-    return render(request, 'Admin/Edit Authority.html')
+def admin_editauthority(request,id):
+    res = Authority.objects.get(id=id)
+    return render(request, 'Admin/Edit Authority.html', {"data":res})
 
 def admin_editauthority_post(request):
     name = request.POST['textfield']
@@ -79,6 +81,16 @@ def admin_editauthority_post(request):
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+
+    a = Authority()
+    a.name = name
+    a.place = place
+    a.email = Email
+    a.phone = phone
+    a.post = post
+    a.district = district
+    a.pincode = pincode
+    a.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editauthority/'</script>''')
 
 
@@ -131,17 +143,34 @@ def admin_viewstaff_post(request):
     search = request.POST['textfield']
     return render(request, 'Admin/View Staff.html')
 
-def admin_editstaff(request):
-    return render(request, 'Admin/Edit Staff.html')
+def admin_editstaff(request, id):
+    res = Staff.objects.get(id=id)
+    return render(request, 'Admin/Edit Staff.html', {"data":res})
 
 def admin_editstaff_post(request):
     name = request.POST['textfield']
+    department = request.POST['textfield8']
+    photo = request.POST['textfield9']
+    gender = request.POST['textfield10']
     place = request.POST['textfield2']
-    Email = request.POST['textfield2']
+    Email = request.POST['textfield11']
     phone = request.POST['textfield3']
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+
+    s = Staff()
+    s.name = name
+    s.department = department
+    s.photo = photo
+    s.gender = gender
+    s.place = place
+    s.email = Email
+    s.phone = phone
+    s.post = post
+    s.district = district
+    s.pincode = pincode
+    s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstaff/'</script>''')
 
 def admin_addstudent(request):
@@ -180,8 +209,9 @@ def admin_viewstudent_post(request):
     return render(request, 'Admin/View Student.html')   ############//
 
 
-def admin_editstudent(request):
-    return render(request, 'Admin/Edit Student.html')
+def admin_editstudent(request, id):
+    res = Student.objects.get(id = id)
+    return render(request, 'Admin/Edit Student.html', {"data":res})
 
 def admin_editstudent_post(request):
     name = request.POST['textfield']
@@ -192,7 +222,19 @@ def admin_editstudent_post(request):
     email = request.POST['textfield6']
     gender = request.POST['textfield7']
     place = request.POST['textfield8']
-    #photo = request.POST['fileField']#####################
+    photo = request.POST['fileField']#####################
+
+    s = Student()
+    s.name = name
+    s.admissionno = admissionno
+    s.dob = dob
+    s.department = department
+    s.course = course
+    s.photo = photo
+    s.gender = gender
+    s.place = place
+    s.email = email
+    s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstudent/'</script>''')
 
 
@@ -204,6 +246,13 @@ def admin_addexam_post(request):
     examcode = request.POST['textfield2']
     date = request.POST['textfield3']
     type = request.POST['select']
+
+    e = Exam()
+    e.examname = examname
+    e.examcode = examcode
+    e.date = date
+    e.type = type
+    e.save()
     # Submit button available in html page   #############################
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addexam/'</script>''')
 
@@ -218,14 +267,22 @@ def admin_viewexam_post(request):
     #return render(request, 'Admin/View Exam.html') ###################
 
 
-def admin_editexam(request):
-    return render(request, 'Admin/Edit Exam.html')
+def admin_editexam(request, id):
+    res = Exam.objects.get(id = id)
+    return render(request, 'Admin/Edit Exam.html', {"data":res})
 
 def admin_editexam_post(request):
     examname = request.POST['textfield']
     examcode = request.POST['textfield2']
     date = request.POST['textfield3']
     type = request.POST['select']
+
+    e = Exam()
+    e.examname = examname
+    e.examcode = examcode
+    e.date = date
+    e.type = type
+    e.save()
     # Submit button available in html page   #############################
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_editexam/'</script>''')
 
@@ -237,7 +294,15 @@ def admin_addschedule_post(request):
     date = request.POST['textfield']
     fromtime = request.POST['textfield2']
     totime = request.POST['textfield3']
-    #exam = request.POST['select']#######################
+    exam = request.POST['select']
+
+    s = Schedule()
+    s.date = date
+    s.fromtime = fromtime
+    s.totime = totime
+    s.exam = exam
+    s.save()
+
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addschedule/'</script>''')
 
 
@@ -250,14 +315,22 @@ def admin_viewschedule_post(request):
     #return render(request, 'Admin/View Schedule.html') ###################
 
 
-def admin_editschedule(request):
-    return render(request, 'Admin/Edit Schedule.html')
+def admin_editschedule(request, id):
+    res = Schedule.objects.get(id=id)
+    return render(request, 'Admin/Edit Schedule.html',{"data":res})
 
 def admin_editschedule_post(request):
     date = request.POST['textfield']
     fromtime = request.POST['textfield2']
     totime = request.POST['textfield3']
-    #exam = request.POST['select']###############################
+    exam = request.POST['select']
+
+    s = Schedule()
+    s.date = date
+    s.fromtime = fromtime
+    s.totime = totime
+    s.exam = exam    # Value is not given in the HTML page
+    s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editschedule/'</script>''')
 
 
@@ -265,10 +338,16 @@ def admin_addstaffallocation(request):
     return render(request, 'Admin/Add Staff Allocation.html')
 
 def admin_addstaffallocation_post(request):
-    #staff = request.POST['select']##################
+    staff = request.POST['select']
     date = request.POST['textfield']
-    #hallallocation = request.POST['select']###################
-    #submit = request.POST['button']#################
+    hallallocation = request.POST['select']###################
+
+    s = Staffallocation()
+    s.staff = staff
+    s.date = date
+    s.hallallocation = hallallocation
+    s.save()
+
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_addstaffallocation/'</script>''')
 
 
@@ -282,14 +361,21 @@ def admin_viewstaffallocation_post(request):
     #href edit&delete ###################################################
 
 
-def admin_editstaffallocation(request):
-    return render(request, 'Admin/Edit Staff Allocation.html')
+def admin_editstaffallocation(request, id):
+    res = Staffallocation.objects.get(id=id)
+    return render(request, 'Admin/Edit Staff Allocation.html', {"data":res})
 
 def admin_editstaffallocation_post(request):
-    #staff = request.POST['select']####################
+    staff = request.POST['select']
     date = request.POST['textfield']
-    #hallallocation = request.POST['select2']########################
+    hallallocation = request.POST['select2']  # Value for the hall allocation is not given in the HTML Page
     # Submit button######################################
+
+    s = Staffallocation()
+    s.staff = staff
+    s.date = date
+    s.hallallocation = hallallocation
+    s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstaffallocation/'</script>''')
 
 
@@ -299,8 +385,15 @@ def admin_addstudentallocation(request):
 def admin_addstudentallocation_post(request):
     student = request.POST['textfield']
     date = request.POST['textfield2']
-    #hallallocation = request.POST['select']################
+    hallallocation = request.POST['select']################
     # Submit Button ##########################################
+
+    s = Studentallocation()
+    s.student = student
+    s.date = date
+    s.hallallocation = hallallocation
+    s.save()
+
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addstudentallocation/'</script>''')
 
 
@@ -312,24 +405,37 @@ def admin_viewstudentallocation_post(request):
     # Edit and Delete hyperlink available ##########################
 
 
-def admin_editstudentallocation(request):
-    return render(request, 'Admin/Edit Student Allocation.html')
+def admin_editstudentallocation(request, id):
+    res = Staffallocation.objects.get(id = id)
+    return render(request, 'Admin/Edit Student Allocation.html', {"data":res})
 
 def admin_editstudentallocation_post(request):
     student = request.POST['textfield']
     date = request.POST['textfield2']
-    #hallallocation = request.POST['select']#########
-    # submit button
+    hallallocation = request.POST['select']
+
+    s = Studentallocation()
+    s.student = student
+    s.date = date
+    s.hallallocation = hallallocation  #
+    s.save()
+
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstudentallocation/'</script>''')
 
 
 def admin_addhall(request):
     return render(request, 'Admin/Add Hall.html')
 
+
 def admin_addhall_post(request):
-    rollno = request.POST['textfield']
-    department = request.POST['textfield2']
-    # Submit button ################################
+    roomno = request.POST['textfield']
+    floor = request.POST['textfield2']
+
+
+    a = Hall()
+    a.roomno = roomno
+    a.floor = floor
+    a.save()
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addhall/'</script>''')
 
 
@@ -341,12 +447,18 @@ def admin_viewhall_post(request):
     #Edit n Delete hyperlink available##########################
 
 
-def admin_edithall(request):
-    return render(request, 'Admin/Edit Hall.html')
+def admin_edithall(request, id):
+    res = Hall.objects.get(id=id)
+    return render(request, 'Admin/Edit Hall.html', {"data":res})
 
 def admin_edithall_post(request):
-    rollno = request.POST['textfield']
-    department = request.POST['textfield2']
+    roomno = request.POST['textfield']
+    floor = request.POST['textfield2']
+
+    a = Hall()
+    a.roomno = roomno
+    a.floor = floor
+    a.save()
     # Edit n delete hyperlink ####################################
     # Submit button
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_edithall/'</script>''')
@@ -375,10 +487,16 @@ def admin_addhallallocation(request):
     return render(request, 'Admin/Add Hall Allocation.html')
 
 def admin_addhallallocation_post(request):
-    #exam = request.POST['select']        #######################################
-    #hall = request.POST['select2']
+    exam = request.POST['select']        #######################################
+    hall = request.POST['select2']
     date = request.POST['textfield']
     # Submit Button
+
+    s = Hallallocation()
+    s.exam = exam
+    s.hall = hall
+    s.date = date
+    s.save()
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addhallallocation/'</script>''')
 
 
@@ -392,14 +510,20 @@ def admin_viewhallallocation_post(request):
     return render(request, 'Admin/View Hall Allocation.html')
 
 
-def admin_edithallallocation(request):
-    return render(request, 'Admin/Edit Hall Allocation.html')
+def admin_edithallallocation(request, id):
+    res = Hallallocation.objects.get(id = id)
+    return render(request, 'Admin/Edit Hall Allocation.html', {"data":res})
 
 def admin_edithallallocation_post(request):
-    #exam = request.POST['select']  ############################
-    #hall = request.POST['select2']
+    exam = request.POST['select']  ############################
+    hall = request.POST['select2']
     date = request.POST['textfield']
-    #Submit button
+
+    s = Hallallocation()
+    s.exam = exam
+    s.hall = hall
+    s.date = date
+    s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_edithallallocation/'</script>''')
 
 
