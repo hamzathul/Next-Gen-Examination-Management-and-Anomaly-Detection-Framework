@@ -2,8 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from myapp.models import Login, Authority, Staff, Student, Exam, Schedule, Staffallocation, Studentallocation, Hall, \
-    Hallallocation
+from myapp.models import Login, Authority, Staff, Student, Exam, Schedule, Staffallocation, Studentallocation, Hall, Hallallocation
 
 
 def login(request):
@@ -137,7 +136,8 @@ def admin_addstaff_post(request):
 
 
 def admin_viewstaff(request):
-    return render(request, 'Admin/View Staff.html')
+    res=Staff.objects.all()
+    return render(request, 'Admin/View Staff.html',{'data':res})
 
 def admin_viewstaff_post(request):
     search = request.POST['textfield']
@@ -258,7 +258,8 @@ def admin_addexam_post(request):
 
 
 def admin_viewexam(request):
-    return render(request, 'Admin/View Exam.html')
+    res=Exam.objects.all()
+    return render(request, 'Admin/View Exam.html',{'data':res})
 
 def admin_viewexam_post(request):
     fromdate = request.POST['textfield']
@@ -334,25 +335,29 @@ def admin_editschedule_post(request):
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editschedule/'</script>''')
 
 
-def admin_addstaffallocation(request):
-    return render(request, 'Admin/Add Staff Allocation.html')
+def admin_addstaffallocation(request,id ):
+    res1 = Hall.objects.all()
+    return render(request, 'Admin/Add Staff Allocation.html',{'data1':id,'data':res1})
 
 def admin_addstaffallocation_post(request):
-    staff = request.POST['select']
+    did=request.POST['id1']
     date = request.POST['textfield']
-    hallallocation = request.POST['select']###################
+    hallallocation = request.POST['select2']
+    hh=Hallallocation.objects.get(id=hallallocation)
+
 
     s = Staffallocation()
-    s.staff = staff
     s.date = date
-    s.hallallocation = hallallocation
+    s.HALLALLOCATION_id = hh
+    s.STAFF_id=did
     s.save()
 
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_addstaffallocation/'</script>''')
 
 
 def admin_viewstaffallocation(request):
-    return render(request, 'Admin/View Staff Allocation.html')
+    res = Staffallocation.objects.all()
+    return render(request, 'Admin/View Staff Allocation.html',{'data':res})
 
 def admin_viewstaffallocation_post(request):
     fromdate = request.POST['textfield']
@@ -428,19 +433,20 @@ def admin_addhall(request):
 
 
 def admin_addhall_post(request):
-    roomno = request.POST['textfield']
+    rno = request.POST['textfield']
     floor = request.POST['textfield2']
 
 
     a = Hall()
-    a.roomno = roomno
+    a.roomno = rno
     a.floor = floor
     a.save()
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addhall/'</script>''')
 
 
 def admin_viewhall(request):
-    return render(request, 'Admin/View Hall.html')
+    res=Hall.objects.all()
+    return render(request, 'Admin/View Hall.html',{'data':res})
 
 def admin_viewhall_post(request):
     return render(request, 'Admin/View Hall.html')
@@ -483,25 +489,29 @@ def admin_reply_post(request):
     return HttpResponse('''<script>alert('Replied Successfully');window.location='/myapp/admin_reply/'</script>''')
 
 
-def admin_addhallallocation(request):
-    return render(request, 'Admin/Add Hall Allocation.html')
+def admin_addhallallocation(request,id):
+    res=Exam.objects.all()
+    rr=Hall.objects.get(id=id)
+    return render(request, 'Admin/Add Hall Allocation.html',{'data':rr,'data1':res})
 
 def admin_addhallallocation_post(request):
     exam = request.POST['select']        #######################################
-    hall = request.POST['select2']
+    ex=Exam.objects.get(id=exam)
     date = request.POST['textfield']
+    did=request.POST['id1']
     # Submit Button
 
     s = Hallallocation()
-    s.exam = exam
-    s.hall = hall
+    s.EXAM = ex
+    s.HALL_id=did
     s.date = date
     s.save()
-    return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addhallallocation/'</script>''')
+    return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 
 def admin_viewhallallocation(request):
-    return render(request, 'Admin/View Hall Allocation.html')
+    res=Hallallocation.objects.all()
+    return render(request, 'Admin/View Hall Allocation.html',{'data':res})
 
 def admin_viewhallallocation_post(request):
     fromdate = request.POST['textfield']
