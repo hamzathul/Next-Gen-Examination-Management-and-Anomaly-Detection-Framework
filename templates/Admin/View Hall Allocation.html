@@ -23,16 +23,17 @@
       <td>Status</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-    </tr>
+    </tr>{% for i in data %}
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.EXAM.examname }}</td>
+      <td>{{ i.HALL.roomno }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.status }}</td>
       <td><a href="#">Edit</a></td>
       <td><a href="#">Delete</a></td>
     </tr>
+      {% endfor %}
   </table>
 </form>
 </body>

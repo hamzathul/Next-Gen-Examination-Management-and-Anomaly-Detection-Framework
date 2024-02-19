@@ -53,7 +53,7 @@ urlpatterns = [
     path('admin_editschedule/', views.admin_editschedule),
     path('admin_editschedule_post/', views.admin_editschedule_post),
 
-    path('admin_addstaffallocation/', views.admin_addstaffallocation),
+    path('admin_addstaffallocation/<id>', views.admin_addstaffallocation),
     path('admin_addstaffallocation_post/', views.admin_addstaffallocation_post),
 
     path('admin_viewstaffallocation/', views.admin_viewstaffallocation),
@@ -86,7 +86,7 @@ urlpatterns = [
     path('admin_reply/', views.admin_reply),
     path('admin_reply_post/', views.admin_reply_post),
 
-    path('admin_addhallallocation/', views.admin_addhallallocation),
+    path('admin_addhallallocation/<id>', views.admin_addhallallocation),
     path('admin_addhallallocation_post/', views.admin_addhallallocation_post),
 
     path('admin_viewhallallocation/', views.admin_viewhallallocation),
