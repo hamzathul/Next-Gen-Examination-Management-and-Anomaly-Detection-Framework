@@ -5,12 +5,14 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post"><table width="200" border="1">
+<body><form action="/myapp/admin_viewstaffallocation_post/" method="post"><table width="200" border="1">
+        {% csrf_token %}
+
   <tr>
     <td>From date</td>
-    <td><input type="text" name="textfield" id="textfield" /></td>
+    <td><input type="date" name="textfield" id="textfield" /></td>
     <td>To date</td>
-    <td><input type="text" name="textfield2" id="textfield2" /></td>
+    <td><input type="date" name="textfield2" id="textfield2" /></td>
     <td><input type="submit" name="button" id="button" value="Search" /></td>
   </tr>
 </table>
@@ -19,7 +21,7 @@
       <td>Serial No.</td>
       <td>Staff</td>
       <td>Date</td>
-      <td>Hall Allocation</td>
+{#      <td>Hall Allocation</td>#}
       <td>Status</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
@@ -29,10 +31,10 @@
       <td>&nbsp;{{ forloop.counter }}</td>
       <td>&nbsp;{{ i.STAFF.name }}</td>
       <td>&nbsp;{{ i.date }}</td>
-      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>
+{#      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>#}
       <td>{{ i.status }}</td>
-      <td><a href="#">Edit</a></td>
-      <td><a href="#">Delete</a></td>
+      <td><a href="/myapp/admin_editstaffallocation_post/{{ i.id }}">Edit</a></td>
+      <td><a href="/myapp/admin_deletestaffallocation/{{ i.id }}">Delete</a></td>
     </tr>
       {% endfor %}
   </table>

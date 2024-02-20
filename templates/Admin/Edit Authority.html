@@ -5,7 +5,9 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post">
+<body><form action="/myapp/admin_editauthority_post/" method="post">
+    <input type="hidden" name="id" value="{{ data.id }}">
+    {% csrf_token %}
 <table width="200" border="1">
   <tr>
     <td>Name</td>

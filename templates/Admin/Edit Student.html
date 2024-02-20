@@ -5,8 +5,11 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post" enctype="multipart/form-data"><table width="200" border="1">
-  <tr>
+<body><form action="/myapp/admin_editstudent_post/" method="post" enctype="multipart/form-data"><table width="200" border="1">
+        <input type="hidden" name="id" value="{{ data.id }}">
+    {% csrf_token %}
+
+    <tr>
     <td>Name</td>
     <td><input type="text" name="textfield" id="textfield" value="{{ data.name }}"/></td>
   </tr>
@@ -16,11 +19,16 @@
   </tr>
   <tr>
     <td>DOB</td>
-    <td><input type="text" name="textfield3" id="textfield3" value="{{ data.dob }}"/></td>
+    <td><input type="date" name="textfield3" id="textfield3" value="{{ data.dob }}"/></td>
   </tr>
   <tr>
-    <td>Department</td>
-    <td><input type="text" name="textfield4" id="textfield4" value="{{ data.department }}"/></td>
+         <td>Department</td>
+        <td><select name="textfield4">
+            <option hidden>{{ data.department }}</option>
+        <option value="CSE">CSE</option>
+        <option value="EEE">EEE</option>
+        <option value="CHE">CHE</option>
+        <option value="MCT">MCT</option>
   </tr>
   <tr>
     <td>Course</td>
@@ -32,8 +40,9 @@
   </tr>
   <tr>
     <td>Gender</td>
-    <td><input type="text" name="textfield7" id="textfield7" value="{{ data.gender }}"/></td>
-  </tr>
+ <td><input type="radio" name="textfield7" id="textfield7" value="Male" {% if data.gender == "Male" %} checked {% endif %} />Male<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Female" {% if data.gender == "Female" %} checked {% endif %}/>Female<br>
+        <input type="radio" name="textfield7" id="textfield7" value="Others" {% if data.gender == "Others" %} checked {% endif %}/>Others<br>  </tr>
   <tr>
     <td>Place</td>
     <td><input type="text" name="textfield8" id="textfield8" value="{{ data.place }}"/></td>

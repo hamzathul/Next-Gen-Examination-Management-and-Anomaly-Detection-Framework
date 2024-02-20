@@ -6,7 +6,7 @@ from myapp import views
 
 urlpatterns = [
     path('login/',views.login),
-    path('login_post/', views.login_post),
+    path('login_post/',views.login_post),
 
     path('admin_addauthority/',views.admin_addauthority),
     path('admin_addauthority_post/',views.admin_addauthority_post),
@@ -17,14 +17,18 @@ urlpatterns = [
     path('admin_editauthority/<id>', views.admin_editauthority),
     path('admin_editauthority_post/', views.admin_editauthority_post),
 
+    path('admin_deleteauthority/<id>', views.admin_deleteauthority),
+
     path('admin_addstaff/', views.admin_addstaff),
     path('admin_addstaff_post/', views.admin_addstaff_post),
 
     path('admin_viewstaff/', views.admin_viewstaff),
     path('admin_viewstaff_post/', views.admin_viewstaff_post),
 
-    path('admin_editstaff/', views.admin_editstaff),
+    path('admin_editstaff/<id>', views.admin_editstaff),
     path('admin_editstaff_post/', views.admin_editstaff_post),
+
+    path('admin_deletestaff/<id>', views.admin_deletestaff),
 
     path('admin_addstudent/', views.admin_addstudent),
     path('admin_addstudent_post/', views.admin_addstudent_post),
@@ -32,8 +36,10 @@ urlpatterns = [
     path('admin_viewstudent/', views.admin_viewstudent),
     path('admin_viewstudent_post/', views.admin_viewstudent_post),
 
-    path('admin_editstudent/', views.admin_editstudent),
+    path('admin_editstudent/<id>', views.admin_editstudent),
     path('admin_editstudent_post/', views.admin_editstudent_post),
+
+    path('admin_deletestudent/<id>', views.admin_deletestudent),
 
     path('admin_addexam/', views.admin_addexam),
     path('admin_addexam_post/', views.admin_addexam_post),
@@ -41,8 +47,11 @@ urlpatterns = [
     path('admin_viewexam/', views.admin_viewexam),
     path('admin_viewexam_post/', views.admin_viewexam_post),
 
-    path('admin_editexam/', views.admin_editexam),
+    path('admin_editexam/<id>', views.admin_editexam),
     path('admin_editexam_post/', views.admin_editexam_post),
+
+    path('admin_deleteexam/<id>', views.admin_deleteexam),
+
 
     path('admin_addschedule/', views.admin_addschedule),
     path('admin_addschedule_post/', views.admin_addschedule_post),
@@ -50,17 +59,22 @@ urlpatterns = [
     path('admin_viewschedule/', views.admin_viewschedule),
     path('admin_viewschedule_post/', views.admin_viewschedule_post),
 
-    path('admin_editschedule/', views.admin_editschedule),
+    path('admin_editschedule/<id>', views.admin_editschedule),
     path('admin_editschedule_post/', views.admin_editschedule_post),
+
+    path('admin_deleteschedule/<id>', views.admin_deleteschedule),
 
     path('admin_addstaffallocation/<id>', views.admin_addstaffallocation),
     path('admin_addstaffallocation_post/', views.admin_addstaffallocation_post),
 
-    path('admin_viewstaffallocation/', views.admin_viewstaffallocation),
+    path('admin_viewstaffallocation/<id>', views.admin_viewstaffallocation),
     path('admin_viewstaffallocation_post/', views.admin_viewstaffallocation_post),
 
     path('admin_editstaffallocation/', views.admin_editstaffallocation),
     path('admin_editstaffallocation_post/', views.admin_editstaffallocation_post),
+
+    path('admin_deletestaffallocation/<id>', views.admin_deletestaffallocation),###############
+
 
     path('admin_addstudentallocation/', views.admin_addstudentallocation),
     path('admin_addstudentallocation_post/', views.admin_addstudentallocation_post),
@@ -68,7 +82,7 @@ urlpatterns = [
     path('admin_viewstudentallocation/', views.admin_viewstudentallocation),
     path('admin_viewstudentallocation_post/', views.admin_viewstudentallocation_post),
 
-    path('admin_editstudentallocation/', views.admin_editstudentallocation),
+    path('admin_editstudentallocation/<id>', views.admin_editstudentallocation),
     path('admin_editstudentallocation_post/', views.admin_editstudentallocation_post),
 
     path('admin_addhall/', views.admin_addhall),
@@ -86,7 +100,7 @@ urlpatterns = [
     path('admin_reply/', views.admin_reply),
     path('admin_reply_post/', views.admin_reply_post),
 
-    path('admin_addhallallocation/<id>', views.admin_addhallallocation),
+    path('admin_addhallallocation/', views.admin_addhallallocation),
     path('admin_addhallallocation_post/', views.admin_addhallallocation_post),
 
     path('admin_viewhallallocation/', views.admin_viewhallallocation),
@@ -94,6 +108,9 @@ urlpatterns = [
 
     path('admin_edithallallocation/', views.admin_edithallallocation),
     path('admin_edithallallocation_post/', views.admin_edithallallocation_post),
+
+    path('admin_deletehallallocation/<id>', views.admin_deletehallallocation),
+
 
     path('adminhome/', views.adminhome),
 

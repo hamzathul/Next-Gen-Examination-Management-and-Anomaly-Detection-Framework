@@ -30,8 +30,10 @@
       <td>{{ i.HALL.roomno }}</td>
       <td>&nbsp;{{ i.date }}</td>
       <td>{{ i.status }}</td>
+      <td><a href="/myapp/admin_addstaffallocation/{{ i.id }}">Allocate</a></td>
+      <td><a href="/myapp/admin_viewstaffallocation/{{ i.id }}">View Allocation</a></td>
       <td><a href="#">Edit</a></td>
-      <td><a href="#">Delete</a></td>
+      <td><a href="/myapp/admin_deletehallallocation/{{ i.id }}">Delete</a></td>
     </tr>
       {% endfor %}
   </table>

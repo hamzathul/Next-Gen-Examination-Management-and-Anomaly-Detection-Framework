@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -65,11 +66,16 @@ def admin_viewauthority(request):
 
 def admin_viewauthority_post(request):
     search=request.POST['textfield']
-    return render(request, 'Admin/View Authority.html')
+    ab = Authority.objects.filter(name__icontains=search)
+    return render(request, 'Admin/View Authority.html', {'data':ab})
 
+
+def admin_deleteauthority(request,id):
+    res = Authority.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewauthority/'</script>''')
 
 def admin_editauthority(request,id):
-    res = Authority.objects.get(id=id)
+    res = Authority.objects.get(id = id)
     return render(request, 'Admin/Edit Authority.html', {"data":res})
 
 def admin_editauthority_post(request):
@@ -80,8 +86,9 @@ def admin_editauthority_post(request):
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+    id = request.POST['id']
 
-    a = Authority()
+    a = Authority.objects.get(id = id)
     a.name = name
     a.place = place
     a.email = Email
@@ -90,7 +97,7 @@ def admin_editauthority_post(request):
     a.district = district
     a.pincode = pincode
     a.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editauthority/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewauthority/'</script>''')
 
 
 def admin_addstaff(request):
@@ -99,7 +106,7 @@ def admin_addstaff(request):
 def admin_addstaff_post(request):
     name = request.POST['textfield']
     department = request.POST['textfield8']
-    photo = request.POST['textfield9']
+    photo = request.FILES['textfield9']
     gender = request.POST['textfield10']
     place = request.POST['textfield2']
     email = request.POST['textfield3']
@@ -107,6 +114,12 @@ def admin_addstaff_post(request):
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+    from datetime import datetime
+    date = datetime.now().strftime('%Y%m%d_%H%M%S')+".jpg"
+    fs = FileSystemStorage()
+    fs.save(date,photo)
+    path = fs.url(date)
+
 
     l = Login()
     l.username = email
@@ -120,7 +133,7 @@ def admin_addstaff_post(request):
     s.LOGIN = l
     s.name = name
     s.department = department
-    s.photo = photo
+    s.photo = path
     s.gender = gender
     s.place = place
     s.email = email
@@ -141,7 +154,12 @@ def admin_viewstaff(request):
 
 def admin_viewstaff_post(request):
     search = request.POST['textfield']
-    return render(request, 'Admin/View Staff.html')
+    ab = Staff.objects.filter(name__icontains=search)
+    return render(request, 'Admin/View Staff.html', {'data':ab})
+
+def admin_deletestaff(request,id):
+    res = Staff.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstaff/'</script>''')
 
 def admin_editstaff(request, id):
     res = Staff.objects.get(id=id)
@@ -150,7 +168,6 @@ def admin_editstaff(request, id):
 def admin_editstaff_post(request):
     name = request.POST['textfield']
     department = request.POST['textfield8']
-    photo = request.POST['textfield9']
     gender = request.POST['textfield10']
     place = request.POST['textfield2']
     Email = request.POST['textfield11']
@@ -158,11 +175,22 @@ def admin_editstaff_post(request):
     post = request.POST['textfield5']
     district = request.POST['textfield6']
     pincode = request.POST['textfield7']
+    id = request.POST['id']
+    s = Staff.objects.get(id = id)
 
-    s = Staff()
+    if 'textfield9' in request.FILES:
+        photo = request.FILES['textfield9']
+
+        from datetime import datetime
+        date = datetime.now().strftime('%Y%m%d_%H%M%S') + ".jpg"
+        fs = FileSystemStorage()
+        fs.save(date, photo)
+        path = fs.url(date)
+        s.photo = path
+        s.save()
+
     s.name = name
     s.department = department
-    s.photo = photo
     s.gender = gender
     s.place = place
     s.email = Email
@@ -171,7 +199,7 @@ def admin_editstaff_post(request):
     s.district = district
     s.pincode = pincode
     s.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstaff/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewstaff/'</script>''')
 
 def admin_addstudent(request):
     return render(request, 'Admin/Add Student.html')
@@ -186,6 +214,11 @@ def admin_addstudent_post(request):
     gender = request.POST['textfield7']
     place = request.POST['textfield8']
     photo = request.FILES['fileField']
+    from datetime import datetime
+    date = datetime.now().strftime('%Y%m%d_%H%M%S') + ".jpg"
+    fs = FileSystemStorage()
+    fs.save(date, photo)
+    path = fs.url(date)
 
     s = Student()
     s.name = name
@@ -193,7 +226,7 @@ def admin_addstudent_post(request):
     s.dob = dob
     s.department = department
     s.course = course
-    s.photo = photo
+    s.photo = path
     s.gender = gender
     s.place = place
     s.email = email
@@ -203,10 +236,14 @@ def admin_addstudent_post(request):
 
 
 def admin_viewstudent(request):
-    return render(request, 'Admin/View Student.html')
+    ab = Student.objects.all()
+    return render(request, 'Admin/View Student.html', {'data':ab})
 
 def admin_viewstudent_post(request):
-    return render(request, 'Admin/View Student.html')   ############//
+    search = request.POST['textfield']
+    ab = Student.objects.filter(name__icontains=search)
+
+    return render(request, 'Admin/View Student.html',{'data':ab})   ############//
 
 
 def admin_editstudent(request, id):
@@ -222,21 +259,34 @@ def admin_editstudent_post(request):
     email = request.POST['textfield6']
     gender = request.POST['textfield7']
     place = request.POST['textfield8']
-    photo = request.POST['fileField']#####################
+    photo = request.FILES['fileField']#####################
+    id = request.POST['id']
+    s = Student.objects.get(id=id)
 
-    s = Student()
+    if 'fileField' in request.FILES:
+        photo = request.FILES['fileField']
+
+        from datetime import datetime
+        date = datetime.now().strftime('%Y%m%d_%H%M%S') + ".jpg"
+        fs = FileSystemStorage()
+        fs.save(date, photo)
+        path = fs.url(date)
+        s.photo = path
+        s.save()
     s.name = name
     s.admissionno = admissionno
     s.dob = dob
     s.department = department
     s.course = course
-    s.photo = photo
     s.gender = gender
     s.place = place
     s.email = email
     s.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstudent/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewstudent/'</script>''')
 
+def admin_deletestudent(request,id):
+    res = Student.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstudent/'</script>''')
 
 def admin_addexam(request):
     return render(request, 'Admin/Add Exam.html')
@@ -272,32 +322,40 @@ def admin_editexam(request, id):
     res = Exam.objects.get(id = id)
     return render(request, 'Admin/Edit Exam.html', {"data":res})
 
+def admin_deleteexam(request,id):
+    res = Exam.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewexam/'</script>''')
+
 def admin_editexam_post(request):
     examname = request.POST['textfield']
     examcode = request.POST['textfield2']
     date = request.POST['textfield3']
     type = request.POST['select']
+    id = request.POST['id']
 
-    e = Exam()
+    e = Exam.objects.get(id = id)
     e.examname = examname
     e.examcode = examcode
     e.date = date
     e.type = type
     e.save()
     # Submit button available in html page   #############################
-    return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_editexam/'</script>''')
+    return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_viewexam/'</script>''')
 
 
 def admin_addschedule(request):
-    return render(request, 'Admin/Add Schedule.html')
+    a = Exam.objects.all()
+    return render(request, 'Admin/Add Schedule.html', {'data':a})
 
 def admin_addschedule_post(request):
+
     date = request.POST['textfield']
     fromtime = request.POST['textfield2']
     totime = request.POST['textfield3']
     exam = request.POST['select']
 
     s = Schedule()
+    s.EXAM_id = exam
     s.date = date
     s.fromtime = fromtime
     s.totime = totime
@@ -308,7 +366,8 @@ def admin_addschedule_post(request):
 
 
 def admin_viewschedule(request):
-    return render (request, 'Admin/View Schedule.html')
+    res = Schedule.objects.all()
+    return render (request, 'Admin/View Schedule.html', {'data':res})
 
 def admin_viewschedule_post(request):
     fromdate = request.POST['textfield']
@@ -317,46 +376,55 @@ def admin_viewschedule_post(request):
 
 
 def admin_editschedule(request, id):
+    a = Exam.objects.all()
     res = Schedule.objects.get(id=id)
-    return render(request, 'Admin/Edit Schedule.html',{"data":res})
+    return render(request, 'Admin/Edit Schedule.html',{"data":res, "data2":a})
 
 def admin_editschedule_post(request):
     date = request.POST['textfield']
     fromtime = request.POST['textfield2']
     totime = request.POST['textfield3']
     exam = request.POST['select']
+    id = request.POST['id']
 
-    s = Schedule()
+
+    s = Schedule.objects.get(id = id)
     s.date = date
     s.fromtime = fromtime
     s.totime = totime
     s.exam = exam    # Value is not given in the HTML page
     s.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editschedule/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewschedule/'</script>''')
 
+def admin_deleteschedule(request,id):
+    res = Schedule.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewschedule/'</script>''')
 
-def admin_addstaffallocation(request,id ):
-    res1 = Hall.objects.all()
+def admin_addstaffallocation(request,id):
+    res1 = Staff.objects.all()
     return render(request, 'Admin/Add Staff Allocation.html',{'data1':id,'data':res1})
 
 def admin_addstaffallocation_post(request):
-    did=request.POST['id1']
-    date = request.POST['textfield']
-    hallallocation = request.POST['select2']
-    hh=Hallallocation.objects.get(id=hallallocation)
+    hdid=request.POST['id1']
+    # date = request.POST['textfield']
+    staff = request.POST['select2']
+    # hh=Hallallocation.objects.get(id=hallallocation)
 
 
     s = Staffallocation()
+    from datetime import datetime
+    date = datetime.now().strftime('%Y-%m-%d')
     s.date = date
-    s.HALLALLOCATION_id = hh
-    s.STAFF_id=did
+    s.HALLALLOCATION_id = hdid
+    s.STAFF_id=staff
+    s.status = 'Allocated'
     s.save()
 
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_addstaffallocation/'</script>''')
+    return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 
-def admin_viewstaffallocation(request):
-    res = Staffallocation.objects.all()
+def admin_viewstaffallocation(request,id):
+    res = Staffallocation.objects.filter(HALLALLOCATION_id=id)
     return render(request, 'Admin/View Staff Allocation.html',{'data':res})
 
 def admin_viewstaffallocation_post(request):
@@ -383,27 +451,36 @@ def admin_editstaffallocation_post(request):
     s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstaffallocation/'</script>''')
 
+def admin_deletestaffallocation(request,id):
+    res = Staffallocation.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstaffallocation/'</script>''')
+
 
 def admin_addstudentallocation(request):
-    return render(request, 'Admin/Add Student Allocation.html')
+    var = Student.objects.all()
+    va = Hallallocation.objects.all()
+    return render(request, 'Admin/Add Student Allocation.html',{'data1':var, 'data2':va})
 
 def admin_addstudentallocation_post(request):
-    student = request.POST['textfield']
-    date = request.POST['textfield2']
+    student = request.POST['select2']
+    # date = request.POST['textfield2']
     hallallocation = request.POST['select']################
     # Submit Button ##########################################
 
     s = Studentallocation()
-    s.student = student
-    s.date = date
-    s.hallallocation = hallallocation
+    s.STUDENT_id = student
+    from datetime import datetime
+    s.date = datetime.now().strftime('%Y-%m-%d')
+    s.HALLALLOCATION_id = hallallocation
+    s.status = 'Allocated'
     s.save()
 
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_addstudentallocation/'</script>''')
 
 
 def admin_viewstudentallocation(request):
-    return render(request, 'Admin/View Student Allocation.html')
+    res = Studentallocation.objects.all()
+    return render(request, 'Admin/View Student Allocation.html', {'data':res})
 
 def admin_viewstudentallocation_post(request):
     return render(request, 'Admin/View Student Allocation.html')
@@ -411,21 +488,27 @@ def admin_viewstudentallocation_post(request):
 
 
 def admin_editstudentallocation(request, id):
-    res = Staffallocation.objects.get(id = id)
-    return render(request, 'Admin/Edit Student Allocation.html', {"data":res})
+    res = Studentallocation.objects.get(id = id)
+    var = Student.objects.all()
+    va = Hallallocation.objects.all()
+    return render(request, 'Admin/Edit Student Allocation.html', {"data":res, "data1":var, "data2":va})
 
 def admin_editstudentallocation_post(request):
-    student = request.POST['textfield']
-    date = request.POST['textfield2']
+    student = request.POST['select2']
+    # date = request.POST['textfield2']
     hallallocation = request.POST['select']
+    id = request.POST['id']
 
-    s = Studentallocation()
-    s.student = student
-    s.date = date
-    s.hallallocation = hallallocation  #
+    s = Studentallocation.objects.get(id=id)
+    s.STUDENT_id = student
+    from datetime import datetime
+    s.date = datetime.now().strftime('%Y-%m-%d')
+    s.HALLALLOCATION_id = hallallocation
+    s.status = 'Allocated'
+
     s.save()
 
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstudentallocation/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewstudentallocation/'</script>''')
 
 
 def admin_addhall(request):
@@ -489,22 +572,24 @@ def admin_reply_post(request):
     return HttpResponse('''<script>alert('Replied Successfully');window.location='/myapp/admin_reply/'</script>''')
 
 
-def admin_addhallallocation(request,id):
+def admin_addhallallocation(request):
     res=Exam.objects.all()
-    rr=Hall.objects.get(id=id)
-    return render(request, 'Admin/Add Hall Allocation.html',{'data':rr,'data1':res})
+    rr=Hall.objects.all()
+    return render(request, 'Admin/Add Hall Allocation.html',{'data2':rr,'data1':res})
 
 def admin_addhallallocation_post(request):
-    exam = request.POST['select']        #######################################
+    exam = request.POST['select'] #######################################
+    hall = request.POST['select1']
     ex=Exam.objects.get(id=exam)
     date = request.POST['textfield']
-    did=request.POST['id1']
+    #did=request.POST['id1']
     # Submit Button
 
     s = Hallallocation()
     s.EXAM = ex
-    s.HALL_id=did
+    s.HALL_id=hall
     s.date = date
+    s.status = 'Allocated'
     s.save()
     return HttpResponse('''<script>alert('Added Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
@@ -535,6 +620,10 @@ def admin_edithallallocation_post(request):
     s.date = date
     s.save()
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_edithallallocation/'</script>''')
+
+def admin_deletehallallocation(request,id):
+    res = Hallallocation.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 
 #############################################

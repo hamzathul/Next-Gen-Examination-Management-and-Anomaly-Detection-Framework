@@ -8,9 +8,9 @@
 <body><form action="" method="post"><table width="200" border="1">
   <tr>
     <td>From date</td>
-    <td><input type="text" name="textfield" id="textfield" /></td>
+    <td><input type="date" name="textfield" id="textfield" /></td>
     <td>To date</td>
-    <td><input type="text" name="textfield2" id="textfield2" /></td>
+    <td><input type="date" name="textfield2" id="textfield2" /></td>
     <td><input type="submit" name="button" id="button" value="Search" /></td>
   </tr>
 </table>
@@ -31,8 +31,8 @@
     <td>&nbsp;{{ i.examcode }}</td>
     <td>&nbsp;{{ i.date }}</td>
     <td>{{ i.type }}</td>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="/myapp/admin_editexam/{{ i.id }}">Edit</a></td>
+    <td><a href="/myapp/admin_deleteexam/{{ i.id }}">Delete</a></td>
   </tr>
     {% endfor %}
 </table>

@@ -30,7 +30,7 @@
       <td>&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.district }}<br>{{ i.pincode }}</td>
       <td>{{ i.phone }}</td>
       <td><a href="/myapp/admin_editauthority/{{ i.id }}">Edit</a></td>
-      <td><a href="#">Delete</a></td>
+      <td><a href="/myapp/admin_deleteauthority/{{ i.id }}">Delete</a></td>
     </tr>
       {% endfor %}
   </table>
