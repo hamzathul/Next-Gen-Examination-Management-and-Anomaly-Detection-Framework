@@ -85,6 +85,9 @@ urlpatterns = [
     path('admin_editstudentallocation/<id>', views.admin_editstudentallocation),
     path('admin_editstudentallocation_post/', views.admin_editstudentallocation_post),
 
+    path('admin_deletestudentallocation/<id>', views.admin_deletestudentallocation),
+
+
     path('admin_addhall/', views.admin_addhall),
     path('admin_addhall_post/', views.admin_addhall_post),
 

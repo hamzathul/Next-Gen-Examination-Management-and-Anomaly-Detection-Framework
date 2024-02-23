@@ -259,7 +259,7 @@ def admin_editstudent_post(request):
     email = request.POST['textfield6']
     gender = request.POST['textfield7']
     place = request.POST['textfield8']
-    photo = request.FILES['fileField']#####################
+    photo = request.FILES['fileField']
     id = request.POST['id']
     s = Student.objects.get(id=id)
 
@@ -510,6 +510,9 @@ def admin_editstudentallocation_post(request):
 
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewstudentallocation/'</script>''')
 
+def admin_deletestudentallocation(request,id): ##########Last class
+    res = Authority.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstudentallocation/'</script>''')
 
 def admin_addhall(request):
     return render(request, 'Admin/Add Hall.html')
@@ -550,7 +553,7 @@ def admin_edithall_post(request):
     a.save()
     # Edit n delete hyperlink ####################################
     # Submit button
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_edithall/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewhall/'</script>''')
 
 
 def admin_viewcomplaint(request):

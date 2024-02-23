@@ -5,7 +5,9 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post"><table width="200" border="1">
+<body><form action="/myapp/admin_viewhall_post" method="post"><table width="200" border="1">
+    {% csrf_token %}
+
   <tr>
     <td>Serial No</td>
     <td>Room No</td>
@@ -18,7 +20,7 @@
     <td> {{ forloop.counter }}</td>
     <td>&nbsp;{{ i.roomno }}</td>
     <td>&nbsp;{{ i.floor }}</td>
-    <td><a href="#">Edit</a></td>
+    <td><a href="/myapp/admin_edithall/{{ i.id }}">Edit</a></td>
     <td><a href="#">Delete</a></td>
     <td><a href="/myapp/admin_addhallallocation/{{ i.id }}">Hallallocation</a></td>
   </tr>
