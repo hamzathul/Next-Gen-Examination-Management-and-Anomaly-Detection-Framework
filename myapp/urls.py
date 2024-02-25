@@ -70,7 +70,7 @@ urlpatterns = [
     path('admin_viewstaffallocation/<id>', views.admin_viewstaffallocation),
     path('admin_viewstaffallocation_post/', views.admin_viewstaffallocation_post),
 
-    path('admin_editstaffallocation/', views.admin_editstaffallocation),
+    path('admin_editstaffallocation/<id>', views.admin_editstaffallocation),
     path('admin_editstaffallocation_post/', views.admin_editstaffallocation_post),
 
     path('admin_deletestaffallocation/<id>', views.admin_deletestaffallocation),###############
@@ -94,22 +94,25 @@ urlpatterns = [
     path('admin_viewhall/', views.admin_viewhall),
     path('admin_viewhall_post/', views.admin_viewhall_post),
 
-    path('admin_edithall/', views.admin_edithall),
+    path('admin_edithall/<id>', views.admin_edithall),
     path('admin_edithall_post/', views.admin_edithall_post),
+
+    path('admin_deletehall/<id>', views.admin_deletehall),
+
 
     path('admin_viewcomplaint/', views.admin_viewcomplaint),
     path('admin_viewcomplaint_post/', views.admin_viewcomplaint_post),
 
-    path('admin_reply/', views.admin_reply),
+    path('admin_reply/<id>', views.admin_reply),
     path('admin_reply_post/', views.admin_reply_post),
 
-    path('admin_addhallallocation/', views.admin_addhallallocation),
+    path('admin_addhallallocation/<id>', views.admin_addhallallocation),
     path('admin_addhallallocation_post/', views.admin_addhallallocation_post),
 
     path('admin_viewhallallocation/', views.admin_viewhallallocation),
     path('admin_viewhallallocation_post/', views.admin_viewhallallocation_post),
 
-    path('admin_edithallallocation/', views.admin_edithallallocation),
+    path('admin_edithallallocation/<id>', views.admin_edithallallocation),
     path('admin_edithallallocation_post/', views.admin_edithallallocation_post),
 
     path('admin_deletehallallocation/<id>', views.admin_deletehallallocation),

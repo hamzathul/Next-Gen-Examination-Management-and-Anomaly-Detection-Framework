@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from myapp.models import Login, Authority, Staff, Student, Exam, Schedule, Staffallocation, Studentallocation, Hall, Hallallocation
+from myapp.models import *
 
 
 def login(request):
@@ -16,6 +16,8 @@ def login_post(request):
         ress = Login.objects.get(username = username, password=password)
         if ress.type == 'Admin':
             return redirect('/myapp/adminhome/')
+        elif ress.type == 'Authority':
+            return redirect('/myapp/authorityhome/')
         else:
             return HttpResponse('''<script>alert('User not found');window.location='/myapp/login/'</script>''')
     else:
@@ -314,8 +316,8 @@ def admin_viewexam(request):
 def admin_viewexam_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # submit button available  ########################################
-    #return render(request, 'Admin/View Exam.html') ###################
+    res = Exam.objects.filter(date__range=[fromdate,todate])
+    return render(request, 'Admin/View Exam.html',{'data':res})
 
 
 def admin_editexam(request, id):
@@ -372,7 +374,9 @@ def admin_viewschedule(request):
 def admin_viewschedule_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    #return render(request, 'Admin/View Schedule.html') ###################
+    res = Schedule.objects.filter(date__range=[fromdate,todate])
+
+    return render (request, 'Admin/View Schedule.html', {'data':res})
 
 
 def admin_editschedule(request, id):
@@ -434,26 +438,28 @@ def admin_viewstaffallocation_post(request):
     #href edit&delete ###################################################
 
 
+
+
 def admin_editstaffallocation(request, id):
+    res2 = Staff.objects.all()
     res = Staffallocation.objects.get(id=id)
-    return render(request, 'Admin/Edit Staff Allocation.html', {"data":res})
+    return render(request, 'Admin/Edit Staff Allocation.html', {"data":res, "data2":res2})
 
 def admin_editstaffallocation_post(request):
+    id = request.POST['id']
     staff = request.POST['select']
-    date = request.POST['textfield']
-    hallallocation = request.POST['select2']  # Value for the hall allocation is not given in the HTML Page
+    #date = request.POST['textfield']
+    # hallallocation = request.POST['select2']  # Value for the hall allocation is not given in the HTML Page
     # Submit button######################################
 
-    s = Staffallocation()
-    s.staff = staff
-    s.date = date
-    s.hallallocation = hallallocation
+    s = Staffallocation.objects.get(id=id)
+    s.STAFF_id = staff
     s.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_editstaffallocation/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 def admin_deletestaffallocation(request,id):
     res = Staffallocation.objects.filter(id = id).delete()
-    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstaffallocation/'</script>''')
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 
 def admin_addstudentallocation(request):
@@ -511,7 +517,7 @@ def admin_editstudentallocation_post(request):
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewstudentallocation/'</script>''')
 
 def admin_deletestudentallocation(request,id): ##########Last class
-    res = Authority.objects.filter(id = id).delete()
+    res = Studentallocation.objects.filter(id = id).delete()
     return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewstudentallocation/'</script>''')
 
 def admin_addhall(request):
@@ -545,9 +551,10 @@ def admin_edithall(request, id):
 
 def admin_edithall_post(request):
     roomno = request.POST['textfield']
+    id = request.POST['id']
     floor = request.POST['textfield2']
 
-    a = Hall()
+    a = Hall.objects.get(id=id)
     a.roomno = roomno
     a.floor = floor
     a.save()
@@ -555,34 +562,40 @@ def admin_edithall_post(request):
     # Submit button
     return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewhall/'</script>''')
 
+def admin_deletehall(request,id):
+    res = Hall.objects.filter(id = id).delete()
+    return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewhall/'</script>''')
 
 def admin_viewcomplaint(request):
-    return render(request, 'Admin/View Complaint.html')
+    res = Complaint.objects.all()
+    return render(request, 'Admin/View Complaint.html',{'data':res})
 
 def admin_viewcomplaint_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button #############################
-    return render(request, 'Admin/View Complaint.html')
+    res = Complaint.objects.filter(date__range=[fromdate,todate])
+    return render(request, 'Admin/View Complaint.html',{'data':res})
 
 
-def admin_reply(request):
-    return render(request, 'Admin/Reply.html')
+def admin_reply(request,id):
+    return render(request, 'Admin/Reply.html',{'id':id})
 
 def admin_reply_post(request):
     reply = request.POST['textfield']
+    id = request.POST['id']
+    Complaint.objects.filter(id=id).update(status="Replied",reply=reply)
     # Submit button
-    return HttpResponse('''<script>alert('Replied Successfully');window.location='/myapp/admin_reply/'</script>''')
+    return HttpResponse('''<script>alert('Replied Successfully');window.location='/myapp/admin_viewcomplaint/'</script>''')
 
 
-def admin_addhallallocation(request):
+def admin_addhallallocation(request, id):
     res=Exam.objects.all()
-    rr=Hall.objects.all()
-    return render(request, 'Admin/Add Hall Allocation.html',{'data2':rr,'data1':res})
+    #rr=Hall.objects.all()
+    return render(request, 'Admin/Add Hall Allocation.html',{'id':id,'data1':res})
 
 def admin_addhallallocation_post(request):
     exam = request.POST['select'] #######################################
-    hall = request.POST['select1']
+    hall = request.POST['id']
     ex=Exam.objects.get(id=exam)
     date = request.POST['textfield']
     #did=request.POST['id1']
@@ -604,32 +617,41 @@ def admin_viewhallallocation(request):
 def admin_viewhallallocation_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
+    res = Hallallocation.objects.filter(date__range=[fromdate,todate])
+
     # Submit button
-    return render(request, 'Admin/View Hall Allocation.html')
+    return render(request, 'Admin/View Hall Allocation.html', {'data':res})
 
 
 def admin_edithallallocation(request, id):
     res = Hallallocation.objects.get(id = id)
-    return render(request, 'Admin/Edit Hall Allocation.html', {"data":res})
+    res1 = Exam.objects.all()
+    res2 = Hall.objects.all()
+    return render(request, 'Admin/Edit Hall Allocation.html', {"data":res, "data2":res2, "data1":res1})
 
 def admin_edithallallocation_post(request):
+    id = request.POST['id']
     exam = request.POST['select']  ############################
     hall = request.POST['select2']
     date = request.POST['textfield']
 
-    s = Hallallocation()
-    s.exam = exam
-    s.hall = hall
+    s = Hallallocation.objects.get(id=id)
+    s.EXAM_id = exam
+    s.HALL_id = hall
     s.date = date
     s.save()
-    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_edithallallocation/'</script>''')
+    return HttpResponse('''<script>alert('Edited Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 def admin_deletehallallocation(request,id):
     res = Hallallocation.objects.filter(id = id).delete()
     return HttpResponse('''<script>alert('Deleted Successfully');window.location='/myapp/admin_viewhallallocation/'</script>''')
 
 
-#############################################
+#######################################################################################################################
+########################################################################################################################
+###################      AUTHORITY Module     ############################################################################
+########################################################################################################################
+###########################################################################################################################
 
 def authority_changepassword(request):
     return render(request, 'Authority/Change Password.html')
@@ -686,7 +708,11 @@ def authority_viewprofile_post(request):
     return render(request, 'Authority/View Profile.html')
 
 
-###################################################################
+#######################################################################################################################
+########################################################################################################################
+###################      STAFF Module     ############################################################################
+########################################################################################################################
+###########################################################################################################################
 
 def staff_sendcomplaint(request):
     return render(request, 'Staff/Send Complaint.html')

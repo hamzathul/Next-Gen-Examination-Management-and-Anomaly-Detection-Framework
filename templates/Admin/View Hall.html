@@ -21,8 +21,8 @@
     <td>&nbsp;{{ i.roomno }}</td>
     <td>&nbsp;{{ i.floor }}</td>
     <td><a href="/myapp/admin_edithall/{{ i.id }}">Edit</a></td>
-    <td><a href="#">Delete</a></td>
-    <td><a href="/myapp/admin_addhallallocation/{{ i.id }}">Hallallocation</a></td>
+    <td><a href="/myapp/admin_deletehall/{{ i.id }}">Delete</a></td>
+    <td><a href="/myapp/admin_addhallallocation/{{ i.id }}">Exam Allocation</a></td>
   </tr>
     {% endfor %}
 </table>

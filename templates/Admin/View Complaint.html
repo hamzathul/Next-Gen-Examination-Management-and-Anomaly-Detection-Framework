@@ -5,32 +5,43 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post"><table width="200" border="1">
+<body><form action="/myapp/admin_viewcomplaint_post/" method="post"><table width="200" border="1">
+        {% csrf_token %}
+
   <tr>
     <td>From Date</td>
-    <td><input type="text" name="textfield" id="textfield" /></td>
+    <td><input type="date" name="textfield" id="textfield" /></td>
     <td>To Date</td>
-    <td><input type="text" name="textfield2" id="textfield2" /></td>
+    <td><input type="date" name="textfield2" id="textfield2" /></td>
     <td><input type="submit" name="button" id="button" value="Search" /></td>
   </tr>
 </table>
   <table width="200" border="1">
     <tr>
-      <td>Serial No</td>
-      <td>Date</td>
-      <td>Staff</td>
-      <td>Complaint</td>
-      <td>Status</td>
-      <td>&nbsp;</td>
+      <th>Serial No</th>
+      <th>Date</th>
+      <th>Staff</th>
+      <th>Complaint</th>
+      <th>Status</th>
+      <th>&nbsp;</th>
     </tr>
+      {% for i in data %}
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td><a href="#">Reply</a></td>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.STAFF.name }}</td>
+      <td>{{ i.complaint }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+      <td>
+      {% if i.status == 'Pending' %}
+          <a href="/myapp/admin_reply/{{ i.id }}">Reply</a>
+          {% else %}
+          {{ i.reply }}
+          {% endif %}
+
+      </td>
     </tr>
+      {% endfor %}
   </table>
 </form>
 </body>

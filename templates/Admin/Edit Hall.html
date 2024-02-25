@@ -9,6 +9,7 @@
     {% csrf_token %}
 
   <tr>
+      <input type="hidden" name="id" value="{{ data.id }}">
     <td>Room No.</td>
     <td><input type="text" name="textfield" id="textfield" value="{{ data.roomno }}"/></td>
   </tr>
