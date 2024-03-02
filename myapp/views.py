@@ -14,12 +14,17 @@ def login_post(request):
     res = Login.objects.filter(username=username, password=password)
     if res.exists():
         ress = Login.objects.get(username = username, password=password)
+        request.session['lid']=ress.id
+
         if ress.type == 'Admin':
             return redirect('/myapp/adminhome/')
         elif ress.type == 'Authority':
-            return redirect('/myapp/authorityhome/')
+            return redirect('/myapp/authority_home/')
+        elif ress.type== 'Staff':
+            return redirect('/myapp/staff_home/')
         else:
             return HttpResponse('''<script>alert('User not found');window.location='/myapp/login/'</script>''')
+
     else:
         return HttpResponse('''<script>alert('User not found');window.location='/myapp/login/'</script>''')
 
@@ -660,49 +665,68 @@ def authority_changepassword_post(request):
     oldpassword = request.POST['textfield']
     newpassword = request.POST['textfield2']
     confirmpassword = request.POST['textfield3']
-    return HttpResponse('''<script>alert('Changed Successfully');window.location='/myapp/authority_changepassword/'</script>''')
-    # Submit button
+    var = Login.objects.filter(id=request.session['lid'], password = oldpassword)
+    if var.exists():
+        var2 = Login.objects.get(id=request.session['lid'], password = oldpassword)
+        if newpassword==confirmpassword:
+            var3 = Login.objects.filter(id = request.session['lid']).update(password = confirmpassword)
+            return HttpResponse('''<script>alert('Changed Successfully');window.location='/myapp/login/'</script>''')
+        else:
+            return HttpResponse('''<script>alert('Password mismatch');window.location='/myapp/authority_changepassword/'</script>''')
+    else:
+        return HttpResponse('''<script>alert('Password mismatch');window.location='/myapp/authority_changepassword/'</script>''')
 
+        # Submit button
+def authority_home(request):
+    return render(request,'Authority/Authority Home.html')
 
 def authority_viewexam(request):
-    return render(request, 'Authority/View Exam.html')
+    var = Exam.objects.all()
+    return render(request, 'Authority/View Exam.html', {'data':var})
 
 def authority_viewexam_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button
-    return render(request, 'Authority/View Exam.html')
+    var = Exam.objects.filter(date__range=[fromdate, todate])
+    return render(request, 'Authority/View Exam.html', {'data':var})
 
 
 def authority_viewallocatedstudent(request):
-    return render(request, 'Authority/View Allocated Student.html')
+    var = Studentallocation.objects.all()
+    return render(request, 'Authority/View Allocated Student.html',{'data':var})
 
 def authority_viewallocatedstudent_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button
-    return render(request, 'Authority/View Allocated Student.html')
+    var = Studentallocation.objects.filter(date__range=[fromdate, todate])
+    return render(request, 'Authority/View Allocated Student.html', {'data': var})
 
 
 def authority_viewallocatedstaff(request):
-    return render(request, 'Authority/View Allocated staff.html')
+    var = Staffallocation.objects.all()
+    return render(request, 'Authority/View Allocated staff.html', {'data':var})
 
 def authority_viewallocatedstaff_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # submit button
-    return render(request, 'Authority/View Allocated staff.html')
+    var = Staffallocation.objects.filter(date__range=[fromdate, todate])
+    return render(request, 'Authority/View Allocated staff.html', {'data': var})
 
 
 def authority_viewexamhall(request):
-    return render(request, 'Authority/View Exam Hall.html')
+    var = Hallallocation.objects.all()
+    return render(request, 'Authority/View Exam Hall.html', {'data':var})
 
 def authority_viewexamhall_post(request):
-    return render(request, 'Authority/View Exam Hall.html')
+    fromdate = request.POST['textfield']
+    todate = request.POST['textfield2']
+    var = Hallallocation.objects.filter(date__range=[fromdate, todate])
+    return render(request, 'Authority/View Exam Hall.html', {'data':var})
 
 
 def authority_viewprofile(request):
-    return render(request, 'Authority/View Profile.html')
+    var = Authority.objects.get(LOGIN=request.session['lid'])
+    return render(request, 'Authority/View Profile.html', {'data':var})
 
 def authority_viewprofile_post(request):
     return render(request, 'Authority/View Profile.html')
@@ -719,56 +743,91 @@ def staff_sendcomplaint(request):
 
 def staff_sendcomplaint_post(request):
     complaint = request.POST['textfield']
+    var = Complaint()
+    from datetime import datetime
+    var.date=datetime.now().strftime('%Y-%m-%d')
+    var.complaint = complaint
+    var.reply = 'Pending'
+    var.status='Pending'
+    var.STAFF =  Staff.objects.get(LOGIN=request.session['lid'])
+    var.save()
     # Submit button
     return HttpResponse('''<script>alert('Submitted Successfully');window.location='/myapp/staff_sendcomplaint/'</script>''')
 
+def staff_home(request):
+    return render(request,'Staff/Staff Home.html')
+
 
 def staff_viewallocatedexamhall(request):
-    return render(request, 'Staff/View Allocated Exam Hall.html')
+    var = Staffallocation.objects.filter(STAFF__LOGIN_id = request.session['lid'])
+    return render(request, 'Staff/View Allocated Exam Hall.html', {'data':var})
 
 def staff_viewallocatedexamhall_post(request):
     return render(request, 'Staff/View Allocated Exam Hall.html')
 
 
-def staff_viewallocatedexam(request):
-    return render(request, 'Staff/View Allocated Exam.html')
+def staff_viewallocatedexam(request,id):
+    sta=Staff.objects.get(LOGIN_id=request.session['lid']).id
+    hall=Staffallocation.objects.get(STAFF_id=sta).HALLALLOCATION.id
+    exm=Hallallocation.objects.get(id=hall).EXAM.id
+
+
+    var = Exam.objects.filter(id=exm)
+    return render(request, 'Staff/View Allocated Exam.html',{'data':var})
 
 def staff_viewallocatedexam_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button
-    return render(request, 'Staff/View Allocated Exam.html')
+    sta = Staff.objects.get(LOGIN_id=request.session['lid']).id
+    hall = Staffallocation.objects.get(STAFF_id=sta).HALLALLOCATION.id
+    exm = Hallallocation.objects.get(id=hall).EXAM.id
 
+    var = Exam.objects.filter(id=exm,date__range=[fromdate, todate])
+    return render(request, 'Staff/View Allocated Exam.html', {'data': var})
 
 def staff_viewexamschedule(request):
-    return render(request, 'Staff/View Exam Schedule.html')
+    var = Schedule.objects.all()
+    return render(request, 'Staff/View Exam Schedule.html', {'data':var})
 
 def staff_viewexamschedule_post(request):
     fromdate = request.POST['textfield2']
     todate = request.POST['textfield']
-    # Submit button
-    return render(request, 'Staff/View Exam Schedule.html')
+    var = Schedule.objects.filter(date__range=[fromdate, todate])
+    return render(request, 'Staff/View Exam Schedule.html',{'data':var})
 
 
 def staff_viewprofile(request):
-    return render(request, 'Staff/View Profile.html')
+    var = Staff.objects.get(LOGIN=request.session['lid'])
+    return render(request, 'Staff/View Profile.html', {'data':var})
 
 def staff_viewprofile_post(request):
     return render(request, 'Staff/View Profile.html')
 
 
 def staff_viewreply(request):
-    return render(request, 'Staff/View Reply.html')
+    var= Complaint.objects.filter(STAFF__LOGIN_id=request.session['lid'])
+    return render(request, 'Staff/View Reply.html', {'data':var})
 
 def staff_viewreply_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button
-    return render(request, 'Staff/View Reply.html')
+    var = Complaint.objects.filter(STAFF__LOGIN_id=request.session['lid'], date__range=[fromdate, todate])
+    return render(request, 'Staff/View Reply.html', {'data': var})
 
 
 def staff_viewstudentinexamhall(request):
-    return render(request, 'Staff/View Student in Exam hall.html')
+    sta = Staff.objects.get(LOGIN_id=request.session['lid']).id
+    hall = Staffallocation.objects.get(STAFF_id=sta).HALLALLOCATION.id
+
+    std=Hallallocation.objects.get(id=hall).HALL.id
+
+    SS=Studentallocation.objects.get(HALLALLOCATION__HALL_id=std).STUDENT.id
+
+
+    s=Student.objects.filter(id=SS)
+
+
+    return render(request,'Staff/View Student in Exam hall.html',{'data':s})
 
 def staff_viewstudentinexamhall_post(request):
     fromdate = request.POST['textfield']

@@ -122,6 +122,7 @@ urlpatterns = [
 
     ##################################################################################
 
+    path('authority_home/', views.authority_home),
     path('authority_changepassword/', views.authority_changepassword),
     path('authority_changepassword_post/', views.authority_changepassword_post),
 
@@ -142,13 +143,15 @@ urlpatterns = [
 
     ###################################################################################
 
+    path('staff_home/', views.staff_home),
+
     path('staff_sendcomplaint/', views.staff_sendcomplaint),
     path('staff_sendcomplaint_post/', views.staff_sendcomplaint_post),
 
     path('staff_viewallocatedexamhall/', views.staff_viewallocatedexamhall),
     path('staff_viewallocatedexamhall_post/', views.staff_viewallocatedexamhall_post),
 
-    path('staff_viewallocatedexam/', views.staff_viewallocatedexam),
+    path('staff_viewallocatedexam/<id>', views.staff_viewallocatedexam),
     path('staff_viewallocatedexam_post/', views.staff_viewallocatedexam_post),
 
     path('staff_viewexamschedule/', views.staff_viewexamschedule),

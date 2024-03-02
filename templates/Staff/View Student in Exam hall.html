@@ -5,7 +5,8 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="post"><table width="200" border="1">
+<body><form action="/myapp/staff_viewstudentinexamhall_post/" method="post"><table width="200" border="1">
+    {% csrf_token %}
   <tr>
     <td>From Date</td>
     <td><input type="text" name="textfield" id="textfield" /></td>
@@ -21,12 +22,14 @@
       <td>Date</td>
       <td>Hall Allocation</td>
     </tr>
+      {% for i in data %}
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.STUDENT.name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td></td>
     </tr>
+      {% endfor %}
   </table>
 </form>
 </body>
