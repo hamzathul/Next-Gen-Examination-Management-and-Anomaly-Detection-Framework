@@ -1,18 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
-<body><form action="/myapp/admin_editstaffallocation_post/" method="post"><table width="200" border="1">
+{% extends 'Admin/home index.html' %}
+{% block body %}
+<body><form action="/myapp/admin_editstaffallocation_post/" method="post">
+    <table class="table table-bordered">
 {% csrf_token %}
 
         <input type="hidden" name="id" value="{{ data.id }}">
 
   <tr>
     <td>Staff</td>
-    <td><select name="select" id="select">
+    <td><select name="select" id="select" class="form-control">
         {% for i in data2 %} <option value="{{ i.id }}" {% if i.id == data.STAFF.id %} selected {% endif %}>{{ i.name }}</option> {% endfor %}
     </select></td>
   </tr>
@@ -27,9 +23,9 @@
 {#  </tr>#}
   <tr>
     <td>&nbsp;</td>
-    <td><input type="submit" name="button" id="button" value="Update" /></td>
+    <td><input type="submit" name="button" id="button" value="Update" class="btn btn-info"/></td>
   </tr>
 </table>
 </form>
 </body>
-</html>
+{% endblock %}

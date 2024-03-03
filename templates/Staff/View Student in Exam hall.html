@@ -9,9 +9,9 @@
     {% csrf_token %}
   <tr>
     <td>From Date</td>
-    <td><input type="text" name="textfield" id="textfield" /></td>
+    <td><input type="date" name="textfield" id="textfield" /></td>
     <td>To Date</td>
-    <td><input type="text" name="textfield2" id="textfield2" /></td>
+    <td><input type="date" name="textfield2" id="textfield2" /></td>
     <td><input type="submit" name="button" id="button" value="Search" /></td>
   </tr>
 </table>
@@ -27,7 +27,7 @@
       <td>&nbsp;{{ forloop.counter }}</td>
       <td>&nbsp;{{ i.STUDENT.name }}</td>
       <td>&nbsp;{{ i.date }}</td>
-      <td></td>
+      <td>{{ i.HALLALLOCATION.HALL.roomno }}</td>
     </tr>
       {% endfor %}
   </table>

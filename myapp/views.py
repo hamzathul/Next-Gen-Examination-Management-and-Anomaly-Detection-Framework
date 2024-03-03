@@ -7,7 +7,7 @@ from myapp.models import *
 
 
 def login(request):
-    return render(request, 'Admin/Login.html')
+    return render(request, 'login index.html')
 def login_post(request):
     username = request.POST['textfield']
     password = request.POST['textfield2']
@@ -31,7 +31,7 @@ def login_post(request):
 
 
 def adminhome(request):
-    return render(request,'Admin/Admin Home.html')
+    return render(request,'Admin/home index.html')
 
 def admin_addauthority(request):
     return render(request, 'Admin/Add Authority.html')
@@ -816,25 +816,15 @@ def staff_viewreply_post(request):
 
 
 def staff_viewstudentinexamhall(request):
-    sta = Staff.objects.get(LOGIN_id=request.session['lid']).id
-    hall = Staffallocation.objects.get(STAFF_id=sta).HALLALLOCATION.id
 
-    std=Hallallocation.objects.get(id=hall).HALL.id
-
-    SS=Studentallocation.objects.get(HALLALLOCATION__HALL_id=std).STUDENT.id
-
-
-    s=Student.objects.filter(id=SS)
-
-
-    return render(request,'Staff/View Student in Exam hall.html',{'data':s})
+    SS=Studentallocation.objects.filter(HALLALLOCATION__staffallocation__STAFF__LOGIN_id=request.session['lid'])
+    return render(request,'Staff/View Student in Exam hall.html',{'data':SS})
 
 def staff_viewstudentinexamhall_post(request):
     fromdate = request.POST['textfield']
     todate = request.POST['textfield2']
-    # Submit button
-    return render(request, 'Staff/View Student in Exam hall.html')
-
+    SS=Studentallocation.objects.filter(HALLALLOCATION__staffallocation__STAFF__LOGIN_id=request.session['lid'], date__range=[fromdate,todate])
+    return render(request,'Staff/View Student in Exam hall.html',{'data':SS})
 
 
 
