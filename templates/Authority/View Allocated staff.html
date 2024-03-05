@@ -1,23 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+{% extends 'Authority/home index.html' %}
+{% block body %}
 
-<body><form action="/myapp/authority_viewallocatedstaff_post/" method="post"><table width="200" border="1">
+
+<body><form action="/myapp/authority_viewallocatedstaff_post/" method="post">
+<table class="pull-left mb-3 mt-3" >
     {% csrf_token %}
   <tr>
     <td>From Date</td>
     <td><label for="textfield"></label>
-      <input type="date" name="textfield" id="textfield" /></td>
+      <input type="date" name="textfield" id="textfield" class="form-control"/></td>
     <td>To Date</td>
     <td><label for="textfield2"></label>
-      <input type="date" name="textfield2" id="textfield2" /></td>
-    <td><input type="submit" name="button" id="button" value="Search" /></td>
+      <input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
   </tr>
 </table>
-  <table width="200" border="1">
+    <table class="table table-bordered">
     <tr>
       <td>Serial No</td>
       <td>Staff</td>
@@ -35,4 +33,5 @@
   </table>
 </form>
 </body>
-</html>
+{% endblock %}
+

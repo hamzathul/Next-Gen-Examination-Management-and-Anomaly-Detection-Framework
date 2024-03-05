@@ -678,7 +678,7 @@ def authority_changepassword_post(request):
 
         # Submit button
 def authority_home(request):
-    return render(request,'Authority/Authority Home.html')
+    return render(request,'Authority/home index.html')
 
 def authority_viewexam(request):
     var = Exam.objects.all()
@@ -755,7 +755,7 @@ def staff_sendcomplaint_post(request):
     return HttpResponse('''<script>alert('Submitted Successfully');window.location='/myapp/staff_sendcomplaint/'</script>''')
 
 def staff_home(request):
-    return render(request,'Staff/Staff Home.html')
+    return render(request,'Staff/home index.html')
 
 
 def staff_viewallocatedexamhall(request):
