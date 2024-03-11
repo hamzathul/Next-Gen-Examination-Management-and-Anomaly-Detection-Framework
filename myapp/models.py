@@ -81,4 +81,11 @@ class Complaint(models.Model):
     status = models.CharField(max_length=30)
     STAFF = models.ForeignKey(Staff, on_delete=models.CASCADE)
 
+class Abnormalactivity(models.Model):
+    date = models.DateField()
+    time = models.TimeField()
+    type = models.CharField(max_length=100)
+    content = models.CharField(max_length=300)
+    photo = models.CharField(max_length=500)
+
 

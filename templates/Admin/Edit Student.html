@@ -7,19 +7,19 @@
 
     <tr>
     <td>Name</td>
-    <td><input type="text" name="textfield" id="textfield" value="{{ data.name }}" class="form-control"/></td>
+    <td><input type="text" name="textfield" id="textfield" value="{{ data.name }}" class="form-control" required pattern="[A-Za-z]+"/></td>
   </tr>
   <tr>
     <td>Admission No.</td>
-    <td><input type="text" name="textfield2" id="textfield2" value="{{ data.admissionno }}" class="form-control"/></td>
+    <td><input type="text" name="textfield2" id="textfield2" value="{{ data.admissionno }}" class="form-control" required/></td>
   </tr>
   <tr>
     <td>DOB</td>
-    <td><input type="date" name="textfield3" id="textfield3" value="{{ data.dob }}" class="form-control"/></td>
+    <td><input type="date" name="textfield3" id="textfield3" value="{{ data.dob }}" class="form-control" required/></td>
   </tr>
   <tr>
          <td>Department</td>
-        <td><select name="textfield4"  class="form-control">
+        <td><select name="textfield4"  class="form-control" required>
             <option hidden>{{ data.department }}</option>
         <option value="CSE">CSE</option>
         <option value="EEE">EEE</option>
@@ -28,11 +28,11 @@
   </tr>
   <tr>
     <td>Course</td>
-    <td><input type="text" name="textfield5" id="textfield5" value="{{ data.course }}"  class="form-control"/></td>
+    <td><input type="text" name="textfield5" id="textfield5" value="{{ data.course }}"  class="form-control" required/></td>
   </tr>
   <tr>
     <td>E-mail</td>
-    <td><input type="text" name="textfield6" id="textfield6" value="{{ data.email }}"  class="form-control"/></td>
+    <td><input type="email" name="textfield6" id="textfield6" value="{{ data.email }}"  class="form-control" required/></td>
   </tr>
   <tr>
     <td>Gender</td>
@@ -41,7 +41,7 @@
         <input type="radio" name="textfield7" id="textfield7" value="Others" {% if data.gender == "Others" %} checked {% endif %}/>Others<br>  </tr>
   <tr>
     <td>Place</td>
-    <td><input type="text" name="textfield8" id="textfield8" value="{{ data.place }}"  class="form-control"/></td>
+    <td><input type="text" name="textfield8" id="textfield8" value="{{ data.place }}"  class="form-control" required/></td>
   </tr>
   <tr>
     <td>Photo</td>

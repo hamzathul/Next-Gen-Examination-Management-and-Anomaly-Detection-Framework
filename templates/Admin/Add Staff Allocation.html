@@ -20,7 +20,7 @@
 {#  </tr>#}
   <tr>
     <td>Staff</td>
-    <td><select name="select2" id="select2" class="form-control">
+    <td><select name="select2" id="select2" class="form-control" required>
         {% for i in data %}
         <option value="{{ i.id }}">{{ i.name }}</option>
         {% endfor %}

@@ -7,19 +7,19 @@
     <table class="table table-bordered">
     <tr>
       <td>Exam Name</td>
-      <td><input type="text" name="textfield" id="textfield" value="{{ data.examname }}"class="form-control"/></td>
+      <td><input type="text" name="textfield" id="textfield" value="{{ data.examname }}"class="form-control" required/></td>
     </tr>
     <tr>
       <td>Exam Code</td>
-      <td><input type="text" name="textfield2" id="textfield2" value="{{ data.examcode }}"class="form-control"/></td>
+      <td><input type="text" name="textfield2" id="textfield2" value="{{ data.examcode }}"class="form-control" required/></td>
     </tr>
     <tr>
       <td>Date</td>
-      <td><input type="date" name="textfield3" id="textfield3" value="{{ data.date }}"class="form-control"/></td>
+      <td><input type="date" name="textfield3" id="textfield3" value="{{ data.date }}"class="form-control" required/></td>
     </tr>
     <tr>
       <td>Type</td>
-      <td><select name="select" id="select" class="form-control">
+      <td><select name="select" id="select" class="form-control" required>
                   <option hidden>{{ data.type }}</option>
 
           <option value="Regular" {% if data.type == "Regular" %} selected {% endif %}>Regular</option>

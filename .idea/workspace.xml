@@ -3,9 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="f53c8a5e-360f-4cd7-a13e-a9686e2f48d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/View Student Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/View Student Allocation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Authority/home index.html" afterPath="$PROJECT_DIR$/templates/Authority/home index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Staff/home index.html" afterPath="$PROJECT_DIR$/templates/Staff/home index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myapp/models.py" afterPath="$PROJECT_DIR$/myapp/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Authority.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Authority.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Exam.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Exam.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Hall Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Hall Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Hall.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Hall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Schedule.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Schedule.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Staff Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Staff Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Staff.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Staff.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Student Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Student Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Add Student.html" afterPath="$PROJECT_DIR$/templates/Admin/Add Student.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Authority.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Authority.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Exam.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Exam.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Hall Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Hall Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Hall.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Hall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Schedule.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Schedule.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Staff Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Staff Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Staff.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Staff.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Student Allocation.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Student Allocation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Edit Student.html" afterPath="$PROJECT_DIR$/templates/Admin/Edit Student.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Admin/Reply.html" afterPath="$PROJECT_DIR$/templates/Admin/Reply.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Authority/Change Password.html" afterPath="$PROJECT_DIR$/templates/Authority/Change Password.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Staff/Send Complaint.html" afterPath="$PROJECT_DIR$/templates/Staff/Send Complaint.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,69 +48,41 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Staff/home index.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="569" column="0" lean-forward="false" selection-start-line="569" selection-start-column="0" selection-end-line="569" selection-end-column="0" />
-              <folding>
-                <marker date="1709894794330" expanded="false" signature="13049:13059" ph="..." />
-                <marker date="1709894794330" expanded="false" signature="13338:13343" ph="&amp;" />
-                <marker date="1709894794330" expanded="false" signature="13545:13555" ph="..." />
-                <marker date="1709894794330" expanded="false" signature="14005:14015" ph="..." />
-                <marker date="1709894794330" expanded="false" signature="14476:14486" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/login index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="137">
+              <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View Student Allocation.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Admin/View Student Allocation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="202403091541017276.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/202403091541017276.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Authority/home index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10829">
-              <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="202403091541347515.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/202403091541347515.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View Allocated Exam.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Staff/View Allocated Exam.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="202403091540271684.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/202403091540271684.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View Exam Schedule.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Staff/View Exam Schedule.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="90" />
-              <folding />
-            </state>
+      <file leaf-file-name="202403091539937163.jpg" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/media/202403091539937163.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -144,7 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/Authority/Authority Home.html" />
         <option value="$PROJECT_DIR$/myapp/urls.py" />
         <option value="$PROJECT_DIR$/templates/Staff/Staff Home.html" />
         <option value="$PROJECT_DIR$/templates/Admin/View Student.html" />
@@ -156,36 +146,15 @@
         <option value="$PROJECT_DIR$/templates/Admin/View Schedule.html" />
         <option value="$PROJECT_DIR$/templates/Admin/View Staff Allocation.html" />
         <option value="$PROJECT_DIR$/templates/Admin/View Staff.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Authority.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Exam.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Hall Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Hall.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Schedule.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Staff Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Staff.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Student Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Add Student.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Authority.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Exam.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Hall Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Hall.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Schedule.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Staff Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Staff.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Student Allocation.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Edit Student.html" />
         <option value="$PROJECT_DIR$/templates/login index2.html" />
         <option value="$PROJECT_DIR$/templates/login index.html" />
         <option value="$PROJECT_DIR$/templates/Admin/home index.html" />
-        <option value="$PROJECT_DIR$/templates/Admin/Reply.html" />
-        <option value="$PROJECT_DIR$/templates/Authority/Change Password.html" />
         <option value="$PROJECT_DIR$/templates/Authority/View Allocated Student.html" />
         <option value="$PROJECT_DIR$/templates/Authority/View Exam Hall.html" />
         <option value="$PROJECT_DIR$/templates/Authority/View Allocated staff.html" />
         <option value="$PROJECT_DIR$/templates/Authority/View Exam.html" />
         <option value="$PROJECT_DIR$/templates/Authority/View Profile.html" />
         <option value="$PROJECT_DIR$/myapp/views.py" />
-        <option value="$PROJECT_DIR$/templates/Staff/Send Complaint.html" />
         <option value="$PROJECT_DIR$/templates/Staff/View Allocated Exam Hall.html" />
         <option value="$PROJECT_DIR$/templates/Staff/View Exam Schedule.html" />
         <option value="$PROJECT_DIR$/templates/Staff/View Profile.html" />
@@ -195,6 +164,28 @@
         <option value="$PROJECT_DIR$/templates/Admin/View Student Allocation.html" />
         <option value="$PROJECT_DIR$/templates/Authority/home index.html" />
         <option value="$PROJECT_DIR$/templates/Staff/home index.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Hall.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Staff Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Student Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Student.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Exam.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Hall Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Hall.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Schedule.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Staff Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Student Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Student.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Reply.html" />
+        <option value="$PROJECT_DIR$/templates/Authority/Change Password.html" />
+        <option value="$PROJECT_DIR$/templates/Staff/Send Complaint.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Authority.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Staff.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Authority.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Edit Staff.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Exam.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Hall Allocation.html" />
+        <option value="$PROJECT_DIR$/templates/Admin/Add Schedule.html" />
+        <option value="$PROJECT_DIR$/myapp/models.py" />
       </list>
     </option>
   </component>
@@ -226,6 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,13 +254,52 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myapp" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Staff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examhall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examhall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Authority" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examhall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Examhall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -518,7 +549,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33585477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3517398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -559,216 +590,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Staff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/View Allocated Exam Hall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="90" lean-forward="false" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/Staff Home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Admin/View Staff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/View Profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/View Reply.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="92" lean-forward="false" selection-start-line="12" selection-start-column="92" selection-end-line="12" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/View Student in Exam hall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="91" lean-forward="false" selection-start-line="11" selection-start-column="91" selection-end-line="11" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/Send Complaint.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="79" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/css/style-liberty.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="84" column="2" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/about.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/about1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/b1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/b2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/b3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/b4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/tw.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/team3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/team2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/team1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/sprite.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/logo4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/logo3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/logo2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/logo1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/fb.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/btnPrevious.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/btnNext.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog6.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog5.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/blog1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/banner1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/db.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/team4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/images/logo5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myapp/static/staff_home/assets/js/theme-change.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -818,10 +639,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/View Student Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Staff/home index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="569" column="0" lean-forward="false" selection-start-line="569" selection-start-column="0" selection-end-line="569" selection-end-column="0" />
+          <folding>
+            <marker date="1709894794330" expanded="false" signature="13049:13059" ph="..." />
+            <marker date="1709894794330" expanded="false" signature="13338:13343" ph="&amp;" />
+            <marker date="1709894794330" expanded="false" signature="13545:13555" ph="..." />
+            <marker date="1709894794330" expanded="false" signature="14005:14015" ph="..." />
+            <marker date="1709894794330" expanded="false" signature="14476:14486" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Authority/home index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Staff/View Exam Schedule.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="90" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Exam.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="73" lean-forward="false" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Hall Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="25" column="89" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Hall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="117" lean-forward="false" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Staff Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Student Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Reply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="88" lean-forward="false" selection-start-line="9" selection-start-column="88" selection-end-line="9" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Authority/Change Password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="90" lean-forward="false" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Staff/Send Complaint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="88" lean-forward="false" selection-start-line="8" selection-start-column="88" selection-end-line="8" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Student Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Authority.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="33" column="144" lean-forward="false" selection-start-line="33" selection-start-column="144" selection-end-line="33" selection-end-column="144" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="107" lean-forward="false" selection-start-line="7" selection-start-column="98" selection-end-line="7" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Staff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-667">
+          <caret line="9" column="133" lean-forward="false" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Edit Student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Hall Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="113" lean-forward="false" selection-start-line="24" selection-start-column="113" selection-end-line="24" selection-end-column="113" />
           <folding />
         </state>
       </provider>
@@ -834,42 +812,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Admin/View Student Allocation.html">
+    <entry file="file://$PROJECT_DIR$/templates/Staff/View Allocated Exam Hall.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Authority/home index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10829">
-          <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Staff/home index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="569" column="0" lean-forward="false" selection-start-line="569" selection-start-column="0" selection-end-line="569" selection-end-column="0" />
-          <folding>
-            <marker date="1709894794330" expanded="false" signature="13049:13059" ph="..." />
-            <marker date="1709894794330" expanded="false" signature="13338:13343" ph="&amp;" />
-            <marker date="1709894794330" expanded="false" signature="13545:13555" ph="..." />
-            <marker date="1709894794330" expanded="false" signature="14005:14015" ph="..." />
-            <marker date="1709894794330" expanded="false" signature="14476:14486" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Staff/View Profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Staff/View Student in Exam hall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Authority.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Exam.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="32" column="7" lean-forward="false" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Hall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="93" lean-forward="false" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="88" lean-forward="false" selection-start-line="8" selection-start-column="88" selection-end-line="8" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Staff Allocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="22" column="73" lean-forward="false" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Admin/Add Staff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="57" column="117" lean-forward="false" selection-start-line="57" selection-start-column="117" selection-end-line="57" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091536229900.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/20240220_092721.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/20240220_092458.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/20240220_104914.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/20240220_105131.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/20240309_123055.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091540884911.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="84" column="29" lean-forward="false" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091540895067.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091540930798.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091541017276.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091541347515.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091540271684.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/202403091539937163.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>

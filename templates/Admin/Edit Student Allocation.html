@@ -8,7 +8,7 @@
 
   <tr>
     <td>Student</td>
-      <td><select name="select2" id="select2" class="form-control">
+      <td><select name="select2" id="select2" class="form-control" required>
         {% for i in data1 %}
         <option value="{{ i.id }}">{{ i.name }}</option>
         {% endfor %}
@@ -17,7 +17,7 @@
 
   <tr>
     <td>Hall Allocation</td>
-    <td><select name="select" id="select" class="form-control">
+    <td><select name="select" id="select" class="form-control" required>
         {% for i in data2 %}
         <option value="{{ i.id }}">{{ i.HALL.roomno }}</option>
         {% endfor %}

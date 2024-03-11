@@ -7,7 +7,7 @@
   <tr>
   <input type="hidden" name="id" value="{{ data.id }}">
     <td>Exam</td>
-    <td><select name="select" id="select"  class="form-control">
+    <td><select name="select" id="select"  class="form-control" required>
         {% for i in data1 %}
         <option value="{{ i.id }}" {% if i.id == data.EXAM.id %} selected{% endif %}>{{ i.examname }}</option>
         {% endfor %}
@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <td>Hall</td>
-    <td><select name="select2" id="select2" class="form-control">
+    <td><select name="select2" id="select2" class="form-control" required>
         {% for i in data2 %}
         <option value="{{ i.id }}" {% if i.id == data.HALL.id %} selected {% endif %}>{{ i.roomno }}</option>
         {% endfor %}
@@ -23,7 +23,7 @@
   </tr>
   <tr>
     <td>Date</td>
-    <td><input type="date" name="textfield" id="textfield"  class="form-control"/></td>
+    <td><input type="date" name="textfield" id="textfield"  class="form-control" required/></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
