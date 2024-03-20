@@ -37,7 +37,7 @@
     <td>&nbsp;{{ i.email }}</td>
     <td>&nbsp;{{ i.gender }}</td>
     <td>{{ i.place }}</td>
-      <td><img src="{{ i.photo }}" height="70px" width="70px" ></td>
+      <td><a href="{{ i.photo }}"> <img src="{{ i.photo }}" height="70px" width="70px" ></a></td>
       <td><a href="/myapp/admin_editstudent/{{ i.id }}" class="btn btn-success">Edit</a></td>
     <td><a href="/myapp/admin_deletestudent/{{ i.id }}" class="btn btn-danger">Delete</a></td>
   </tr>{% endfor %}

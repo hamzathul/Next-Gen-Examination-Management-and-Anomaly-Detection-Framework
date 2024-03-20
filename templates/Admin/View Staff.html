@@ -30,7 +30,7 @@
       <td>&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.district }}<br>{{ i.pincode }}</td>
       <td>{{ i.phone }}</td>
       <td>{{ i.department }}</td>
-      <td><img src="{{ i.photo }}" height="70px" width="70px" ></td>
+        <td><a href="{{ i.photo }}"> <img src="{{ i.photo }}" height="70px" width="70px" ></a></td>
       <td><a href="/myapp/admin_editstaff/{{ i.id }}" class="btn btn-success">Edit</a></td>
       <td><a href="/myapp/admin_deletestaff/{{ i.id }}" class="btn btn-danger">Delete</a></td>
     </tr>
